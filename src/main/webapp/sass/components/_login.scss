@@ -1,0 +1,59 @@
+.gm-login {
+	&-main {
+		height: 100vh;
+		@include flex(center, center);
+		flex-direction: column;
+	}
+}
+.form {
+	&-login {
+		width: 100%;
+		max-width: 32rem;
+		margin-top: 1.5rem;
+		padding: 3.6rem 3.2rem 2rem 3.2rem;
+		border-radius: $gm-border-radius;
+		background-color: $gm-white-color;
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	}
+	&-field input,
+	&-submit {
+		width: 100%;
+		padding: 1.2rem;
+		margin-bottom: 1.6rem;
+		border: 1px solid $gm-gray-light-color;
+		border-radius: $gm-border-radius;
+		transition: border 0.2s ease-in-out;
+		font-size: $gm-normal-size;
+		line-height: 1.5;
+	}
+	&-field input {
+		&::placeholder {
+			color: $gm-gray-color;
+			font-size: $gm-normal-size;
+		}
+		&:focus {
+			border: 1px solid $gm-primary-color;
+		}
+	}
+	&-password-box {
+		position: relative;
+		&-icon {
+			position: absolute;
+			right: 1.2rem;
+			top: 50%;
+			transform: translateY(-95%);
+			font-size: 2.4rem;
+			color: $gm-gray-light-color;
+			cursor: pointer;
+		}
+	}
+	&-submit {
+		background-color: $gm-primary-color;
+		color: $gm-white-color;
+		cursor: pointer;
+		transition: opacity 0.3s ease-in-out;
+		&:hover {
+			opacity: 0.85;
+		}
+	}
+}

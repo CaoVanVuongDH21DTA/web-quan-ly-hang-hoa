@@ -1,0 +1,270 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+a {
+  font: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+body {
+  background-color: #f0f4f8;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 192rem;
+  margin: 0 auto;
+}
+
+.gm-logo {
+  max-width: 17.5rem;
+  margin: 0 auto 3.2rem;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+  color: white;
+  background-color: #2f9e44;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #343a40;
+  line-height: 1;
+}
+
+.heading-2 {
+  font-size: 2.2rem;
+  margin-bottom: 3.2rem;
+}
+
+.gm-login-main {
+  height: 100vh;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-login {
+  width: 100%;
+  max-width: 32rem;
+  margin-top: 1.5rem;
+  padding: 3.6rem 3.2rem 2rem 3.2rem;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.form-field input, .form-submit {
+  width: 100%;
+  padding: 1.2rem;
+  margin-bottom: 1.6rem;
+  border: 1px solid #f0f4f8;
+  border-radius: 4px;
+  transition: border 0.2s ease-in-out;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+.form-field input::placeholder {
+  color: #868e96;
+  font-size: 1.6rem;
+}
+.form-field input:focus {
+  border: 1px solid #2f9e44;
+}
+.form-password-box {
+  position: relative;
+}
+.form-password-box-icon {
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-95%);
+  font-size: 2.4rem;
+  color: #f0f4f8;
+  cursor: pointer;
+}
+.form-submit {
+  background-color: #2f9e44;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+.form-submit:hover {
+  opacity: 0.85;
+}
+
+.gm-card {
+  padding: 3.2rem;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.gm-card-title {
+  margin-bottom: 1.2rem;
+}
+.gm-card-number {
+  font-size: 5.4rem;
+  font-weight: bold;
+}
+
+.gm-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+}
+.gm-table-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+.gm-table-head {
+  border-bottom: 1px solid #868e96;
+}
+.gm-table-cell, .gm-table-row th {
+  padding: 2.4rem 1.2rem;
+  text-align: center;
+  line-height: 1.5;
+}
+.gm-table-row:hover {
+  background-color: #eaf5ec;
+}
+
+.gm-home-main {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.gm-menu-left {
+  width: 100%;
+  max-width: 28rem;
+  height: 100%;
+  position: fixed;
+  padding: 2.4rem;
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.gm-nav-list {
+  border-top: 1px solid #f0f4f8;
+  list-style: none;
+}
+.gm-nav-item {
+  margin-top: 1.2rem;
+}
+.gm-nav-item:last-child {
+  margin-top: auto;
+}
+.gm-nav-icon {
+  font-size: 2.4rem;
+  margin-right: 1rem;
+}
+.gm-nav-link {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.5rem;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  color: #343a40;
+  text-decoration: none;
+}
+.gm-nav-link:hover {
+  color: #2f9e44;
+}
+.gm-nav-link-active {
+  color: #2f9e44;
+  border-left: 5px solid #2f9e44;
+  font-weight: 600;
+}
+
+.gm-content {
+  width: 100%;
+  max-width: 100%;
+  padding: 5rem 5rem 5rem 32rem;
+  background-color: #f0f4f8;
+}
+
+.gm-quick-report {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+.gm-quick-report .gm-card {
+  flex: 1;
+}
+
+.gm-report-box {
+  padding: 3.2rem;
+  margin-bottom: 3.2rem;
+  border-radius: 1.6rem;
+  background-color: #fff;
+}
+
+.gm-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2.4rem;
+}
+
+/*# sourceMappingURL=app.css.map */

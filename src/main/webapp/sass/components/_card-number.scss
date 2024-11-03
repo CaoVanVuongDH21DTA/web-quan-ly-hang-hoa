@@ -1,0 +1,12 @@
+.gm-card {
+	padding: 3.2rem;
+	border-radius: 10px;
+	background-color: $gm-white-color;
+  &-title{
+    margin-bottom: 1.2rem;
+  }
+  &-number {
+    font-size: 5.4rem;
+    font-weight: bold;
+  }
+}

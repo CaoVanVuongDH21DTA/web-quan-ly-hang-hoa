@@ -1,0 +1,70 @@
+.gm-home-main {
+	@include d-flex();
+}
+.gm-menu-left {
+	width: 100%;
+	max-width: 28rem;
+	height: 100%;
+	position: fixed;
+	padding: 2.4rem;
+	background-color: $gm-white-color;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.gm-nav {
+	&-list {
+		border-top: 1px solid $gm-gray-light-color;
+		list-style: none;
+	}
+	&-item {
+		margin-top: 1.2rem;
+		&:last-child {
+			margin-top: auto;
+		}
+	}
+	&-icon {
+		font-size: 2.4rem;
+		margin-right: 1rem;
+	}
+	&-link {
+		@include flex(center, flex-start);
+		padding: 1.5rem;
+		border-radius: $gm-border-radius;
+		font-size: $gm-normal-size;
+		color: $gm-text-color;
+		text-decoration: none;
+		&:hover {
+			color: $gm-primary-color;
+		}
+		&-active {
+			color: $gm-primary-color;
+			border-left: 5px solid $gm-primary-color;
+			font-weight: 600;
+			// background-color: $gm-green-light-color;
+		}
+	}
+}
+.gm-content {
+	width: 100%;
+	max-width: 100%;
+	padding: 5rem 5rem 5rem 32rem;
+	background-color: $gm-gray-light-color;
+}
+.gm-quick-report {
+	@include flex(center, space-between);
+	column-gap: 1.6rem;
+	margin-bottom: 3.2rem;
+	.gm-card {
+		flex: 1;
+	}
+}
+.gm-report-box {
+	padding: 3.2rem;
+	margin-bottom: 3.2rem;
+	border-radius: 1.6rem;
+	background-color: $gm-white-color;
+}
+.gm-row-2{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 2.4rem;
+}
