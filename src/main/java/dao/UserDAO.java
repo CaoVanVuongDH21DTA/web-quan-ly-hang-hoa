@@ -18,7 +18,7 @@ public class UserDAO {
              PreparedStatement statement = connection.prepareStatement(query)) {
             
             statement.setString(1, username);
-            statement.setString(2, password);  // Trong thực tế, bạn nên dùng mã hóa BCrypt ở đây
+            statement.setString(2, password);  
             
             ResultSet resultSet = statement.executeQuery();
             

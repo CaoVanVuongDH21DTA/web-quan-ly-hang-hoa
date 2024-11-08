@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    
+    <%@ page import="java.util.List" %>
+    <%@ page import="dao.Bill_saleDAO" %>
+    <%@ page import="Entity.Bill_sale" %>
+    
+    <%
+	    List<Bill_sale> billsales = (List<Bill_sale>) request.getAttribute("billsales");
+	    List<Bill_sale> topProducts = (List<Bill_sale>) request.getAttribute("topProducts");
+	    List<Bill_sale> topProductsByValue = (List<Bill_sale>) request.getAttribute("topProductsByValue");
+	%>
+    
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -35,13 +48,13 @@
 					</div>
 					<ul class="gm-nav-list">
 						<li class="gm-nav-item">
-							<a href="./index.jsp" class="gm-nav-link gm-nav-link-active"
+							<a href="./index" class="gm-nav-link gm-nav-link-active"
 								><ion-icon class="gm-nav-icon" name="pie-chart-outline"></ion-icon>Báo cáo doanh
 								thu</a
 							>
 						</li>
 						<li class="gm-nav-item">
-							<a href="./stock.jsp" class="gm-nav-link"
+							<a href="./stock" class="gm-nav-link"
 								><ion-icon class="gm-nav-icon" name="storefront-outline"></ion-icon>Tồn kho cửa
 								hàng</a
 							>
@@ -52,12 +65,12 @@
 							>
 						</li>
 						<li class="gm-nav-item">
-							<a href="./product-exp.jsp" class="gm-nav-link"
+							<a href="./product-exp" class="gm-nav-link"
 								><ion-icon class="gm-nav-icon" name="pricetags-outline"></ion-icon>Kiểm soát HSD</a
 							>
 						</li>
 						<li class="gm-nav-item">
-							<a href="./supplier.jsp" class="gm-nav-link"
+							<a href="./supplier" class="gm-nav-link"
 								><ion-icon class="gm-nav-icon" name="car-outline"></ion-icon>Thông tin NCC</a
 							>
 						</li>
@@ -109,68 +122,43 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr class="gm-table-row">
-										<td class="gm-table-cell">Thực phẩm tươi sống</td>
-										<td class="gm-table-cell">1.75tr</td>
-										<td class="gm-table-cell">1.61tr</td>
-										<td class="gm-table-cell">1.55tr</td>
-										<td class="gm-table-cell">1.74tr</td>
-										<td class="gm-table-cell">1.74tr</td>
-										<td class="gm-table-cell">2.30tr</td>
-										<td class="gm-table-cell">2.22tr</td>
-										<td class="gm-table-cell">12.99tr</td>
-										<td class="gm-table-cell">112.9% (11.50tr)</td>
-									</tr>
-									<tr class="gm-table-row">
-										<td class="gm-table-cell">Thực phẩm công nghệ</td>
-										<td class="gm-table-cell">7.75tr</td>
-										<td class="gm-table-cell">7.61tr</td>
-										<td class="gm-table-cell">7.61tr</td>
-										<td class="gm-table-cell">6.55tr</td>
-										<td class="gm-table-cell">8.74tr</td>
-										<td class="gm-table-cell">12.30tr</td>
-										<td class="gm-table-cell">9.22tr</td>
-										<td class="gm-table-cell">12.99tr</td>
-										<td class="gm-table-cell">112.9% (11.50tr)</td>
-									</tr>
-									<tr class="gm-table-row">
-										<td class="gm-table-cell">Hoá mỹ phẩm</td>
-										<td class="gm-table-cell">3.75tr</td>
-										<td class="gm-table-cell">2.61tr</td>
-										<td class="gm-table-cell">2.55tr</td>
-										<td class="gm-table-cell">2.55tr</td>
-										<td class="gm-table-cell">2.74tr</td>
-										<td class="gm-table-cell">2.30tr</td>
-										<td class="gm-table-cell">3.22tr</td>
-										<td class="gm-table-cell">12.99tr</td>
-										<td class="gm-table-cell">112.9% (11.50tr)</td>
-									</tr>
-									<tr class="gm-table-row">
-										<td class="gm-table-cell">Đồ gia dụng</td>
-										<td class="gm-table-cell">0.75tr</td>
-										<td class="gm-table-cell">0.75tr</td>
-										<td class="gm-table-cell">0.61tr</td>
-										<td class="gm-table-cell">0.55tr</td>
-										<td class="gm-table-cell">1.30tr</td>
-										<td class="gm-table-cell">0.22tr</td>
-										<td class="gm-table-cell">0.82tr</td>
-										<td class="gm-table-cell">12.99tr</td>
-										<td class="gm-table-cell">112.9% (11.50tr)</td>
-									</tr>
+									<tbody>
+									    <tbody>
+										    <% 
+										        Bill_saleDAO dao = new Bill_saleDAO();
+										        List<Bill_sale> salesData = dao.getWeeklySalesData();
+										        for (Bill_sale sale : salesData) {
+										    %>
+										        <tr class="gm-table-row">
+										            <td class="gm-table-cell"><%= sale.getProductName() %></td>
+										            <td class="gm-table-cell"><%= sale.getThu2Formatted() %> đ</td>
+										            <td class="gm-table-cell"><%= sale.getThu3Formatted() %> đ</td>
+										            <td class="gm-table-cell"><%= sale.getThu4Formatted() %> đ</td>
+										            <td class="gm-table-cell"><%= sale.getThu5Formatted() %> đ</td>
+										            <td class="gm-table-cell"><%= sale.getThu6Formatted() %> đ</td>
+										            <td class="gm-table-cell"><%= sale.getThu7Formatted() %> đ</td>
+										            <td class="gm-table-cell"><%= sale.getCnFormatted() %> đ</td>
+										            <td class="gm-table-cell"><%= sale.getTongCongFormatted() %> đ</td>
+										            <td class="gm-table-cell"><%= sale.getTuanTruocFormatted() %> đ</td>
+										        </tr>
+										    <% } %>
+										</tbody>
+
+									</tbody>
 								</tbody>
 								<tfoot>
-									<tr class="gm-table-row">
-										<th>Tổng cộng</th>
-										<th>13tr</th>
-										<th>13tr</th>
-										<th>13tr</th>
-										<th>13tr</th>
-										<th>13tr</th>
-										<th>13tr</th>
-										<th>13tr</th>
-										<th>155tr</th>
-										<th>105% (145tr)</th>
-									</tr>
+								    <tr class="gm-table-row">
+								        <th>Tổng cộng</th>
+								        <th>${formattedTotalMonday} đ</th>
+								        <th>${formattedTotalTuesday} đ</th>
+								        <th>${formattedTotalWednesday} đ</th>
+								        <th>${formattedTotalThursday} đ</th>
+								        <th>${formattedTotalFriday} đ</th>
+								        <th>${formattedTotalSaturday} đ</th>
+								        <th>${formattedTotalSunday} đ</th>
+								        <th>${formattedTotalWeek} đ</th>
+								        <th>${formattedTotalLastWeek} đ</th>
+								    </tr>
 								</tfoot>
 							</table>
 						</div>
@@ -191,31 +179,13 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr class="gm-table-row">
-											<td class="gm-table-cell">2653400</td>
-											<td class="gm-table-cell">Dầu ăn Green ACE 2L</td>
-											<td class="gm-table-cell">34</td>
-										</tr>
-										<tr class="gm-table-row">
-											<td class="gm-table-cell">2653400</td>
-											<td class="gm-table-cell">Dầu ăn Green ACE 2L</td>
-											<td class="gm-table-cell">34</td>
-										</tr>
-										<tr class="gm-table-row">
-											<td class="gm-table-cell">2653400</td>
-											<td class="gm-table-cell">Dầu ăn Green ACE 2L</td>
-											<td class="gm-table-cell">34</td>
-										</tr>
-										<tr class="gm-table-row">
-											<td class="gm-table-cell">2653400</td>
-											<td class="gm-table-cell">Dầu ăn Green ACE 2L</td>
-											<td class="gm-table-cell">34</td>
-										</tr>
-										<tr class="gm-table-row">
-											<td class="gm-table-cell">2653400</td>
-											<td class="gm-table-cell">Dầu ăn Green ACE 2L</td>
-											<td class="gm-table-cell">34</td>
-										</tr>
+										<c:forEach var="product" items="${topProducts}">
+						                    <tr class="gm-table-row">
+						                        <td class="gm-table-cell">${product.barcode}</td>
+						                        <td class="gm-table-cell">${product.productName}</td>
+						                        <td class="gm-table-cell">${product.quantity}</td>
+						                    </tr>
+						                </c:forEach>
 									</tbody>
 								</table>
 							</div>
@@ -234,37 +204,18 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr class="gm-table-row">
-											<td class="gm-table-cell">2653400</td>
-											<td class="gm-table-cell">Dầu ăn Green ACE 2L</td>
-											<td class="gm-table-cell">2.716tr</td>
-										</tr>
-										<tr class="gm-table-row">
-											<td class="gm-table-cell">2653400</td>
-											<td class="gm-table-cell">Dầu ăn Green ACE 2L</td>
-											<td class="gm-table-cell">2.716tr</td>
-										</tr>
-										<tr class="gm-table-row">
-											<td class="gm-table-cell">2653400</td>
-											<td class="gm-table-cell">Dầu ăn Green ACE 2L</td>
-											<td class="gm-table-cell">2.716tr</td>
-										</tr>
-										<tr class="gm-table-row">
-											<td class="gm-table-cell">2653400</td>
-											<td class="gm-table-cell">Dầu ăn Green ACE 2L</td>
-											<td class="gm-table-cell">2.716tr</td>
-										</tr>
-										<tr class="gm-table-row">
-											<td class="gm-table-cell">2653400</td>
-											<td class="gm-table-cell">Dầu ăn Green ACE 2L</td>
-											<td class="gm-table-cell">2.716tr</td>
-										</tr>
+										<c:forEach var="product" items="${topProductsByValue}">
+						                    <tr class="gm-table-row">
+						                        <td class="gm-table-cell">${product.barcode}</td>
+						                        <td class="gm-table-cell">${product.productName}</td>
+												<td class="gm-table-cell">${product.formattedTotalValue} đ</td>
+						                    </tr>
+						                </c:forEach>
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
-					
 				</div>
 			</div>
 		</div>
