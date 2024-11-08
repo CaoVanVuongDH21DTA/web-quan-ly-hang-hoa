@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 
+
 import Entity.Account;
 import dao.UserDAO;
 import jakarta.servlet.ServletException;
@@ -26,17 +27,9 @@ public class LoginControl extends HttpServlet {
 		
 		if(a == null) {
 			request.setAttribute("errorMessage", "Tên đăng nhập hoặc mật khẩu không đúng");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			request.getRequestDispatcher("login").forward(request, response);
 		}else {
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("index").forward(request, response);
 		}
 	}
 }
-
-//@WebServlet("/logout")
-//public class LogoutControl extends HttpServlet {
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.getSession().invalidate(); // Xóa session
-//        response.sendRedirect("login.jsp"); // Điều hướng về trang đăng nhập
-//    }
-//}

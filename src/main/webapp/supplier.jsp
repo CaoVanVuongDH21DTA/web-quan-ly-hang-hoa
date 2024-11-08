@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -33,13 +35,13 @@
 					</div>
 					<ul class="gm-nav-list">
 						<li class="gm-nav-item">
-							<a href="./index.jsp" class="gm-nav-link"
+							<a href="./index" class="gm-nav-link"
 								><ion-icon class="gm-nav-icon" name="pie-chart-outline"></ion-icon>Báo cáo doanh
 								thu</a
 							>
 						</li>
 						<li class="gm-nav-item">
-							<a href="./stock.jsp" class="gm-nav-link"
+							<a href="./stock" class="gm-nav-link"
 								><ion-icon class="gm-nav-icon" name="storefront-outline"></ion-icon>Tồn kho cửa
 								hàng</a
 							>
@@ -50,12 +52,12 @@
 							>
 						</li>
 						<li class="gm-nav-item">
-							<a href="./product-exp.jsp" class="gm-nav-link"
+							<a href="./product-exp" class="gm-nav-link"
 								><ion-icon class="gm-nav-icon" name="pricetags-outline"></ion-icon>Kiểm soát HSD</a
 							>
 						</li>
 						<li class="gm-nav-item">
-							<a href="./supplier.jsp" class="gm-nav-link gm-nav-link-active"
+							<a href="./supplier" class="gm-nav-link gm-nav-link-active"
 								><ion-icon class="gm-nav-icon" name="car-outline"></ion-icon>Thông tin NCC</a
 							>
 						</li>
@@ -82,24 +84,15 @@
 										<th>Điều kiện đổi trả</th>
 									</tr>
 								</thead>
-								<tbody>
-									<tr class="gm-table-row">
-										<td class="gm-table-cell">21130645</td>
-										<td class="gm-table-cell">
-											Đặng Văn Trung <br />
-											Công ty TNHH Green Mart CN 1266 Kha Vạn Cân
-										</td>
-										<td class="gm-table-cell">
-											21130645@greenmart.com <br />
-											+84337336487
-										</td>
-										<td class="gm-table-cell">
-											Hàng bán chậm: 5 ngày <br />
-											Hàng cận date: 10 ngày <br />
-											Hàng lỗi: 5 ngày
-										</td>
-									</tr>
-								</tbody>
+								<c:forEach var="supplier" items="${suppliers}">
+								    <tr>
+								        <td class="gm-table-cell">${supplier.maNcc}</td>
+								        <td class="gm-table-cell">${supplier.tenNcc}</td>
+								        <td class="gm-table-cell">${supplier.thongTinXuLySuVu}</td>
+								        <td class="gm-table-cell">${supplier.dieuKienDoiTra}</td>
+								    </tr>
+								</c:forEach>
+
 							</table>
 						</div>
 					</div>

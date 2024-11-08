@@ -34,13 +34,13 @@
 					</div>
 					<ul class="gm-nav-list">
 						<li class="gm-nav-item">
-							<a href="./index.jsp" class="gm-nav-link"
+							<a href="./index" class="gm-nav-link"
 								><ion-icon class="gm-nav-icon" name="pie-chart-outline"></ion-icon>Báo cáo doanh
 								thu</a
 							>
 						</li>
 						<li class="gm-nav-item">
-							<a href="./stock.jsp" class="gm-nav-link"
+							<a href="./stock" class="gm-nav-link"
 								><ion-icon class="gm-nav-icon" name="storefront-outline"></ion-icon>Tồn kho cửa
 								hàng</a
 							>
@@ -51,12 +51,12 @@
 							>
 						</li>
 						<li class="gm-nav-item">
-							<a href="./product-exp.jsp" class="gm-nav-link"
+							<a href="./product-exp" class="gm-nav-link"
 								><ion-icon class="gm-nav-icon" name="pricetags-outline"></ion-icon>Kiểm soát HSD</a
 							>
 						</li>
 						<li class="gm-nav-item">
-							<a href="./supplier.jsp" class="gm-nav-link"
+							<a href="./supplier" class="gm-nav-link"
 								><ion-icon class="gm-nav-icon" name="car-outline"></ion-icon>Thông tin NCC</a
 							>
 						</li>
